@@ -15,10 +15,10 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer  -= Time.deltaTime;
+        timer  += Time.deltaTime;
         timerText.text = timer.ToString("F2");
 
-        if (timer <= 0)
+        if (timer >= 0)
         {
            
             timer = 5;
