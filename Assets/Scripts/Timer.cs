@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
 
         if (timer <= 0)
         {
-            audioSource.PlayOneShot(audioClip);
+           
             timer = 5;
         }
         

@@ -1,19 +1,12 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
-
+public class EnemyController : MonoBehaviour
 {
     public Rigidbody2D RB;
-    public PlayerController Target;
-    
-
-
+    public EnemyController Target;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-     
-        RB = GetComponent<Rigidbody2D>();
-        RB.linearVelocity = new Vector2(10,0);
         
     }
 
@@ -21,6 +14,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 move = Vector3.MoveTowards(transform.position, Target.transform.position, 0.1f);
-         RB.MovePosition(move);
+        RB.MovePosition(move);
     }
 }
