@@ -4,23 +4,26 @@ public class PlayerController : MonoBehaviour
 
 {
     public Rigidbody2D RB;
-    public PlayerController Target;
-    
-
+  
+    public float speed = 5;
+    public float HorizontalInput;
+    public float VerticalInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-     
-        RB = GetComponent<Rigidbody2D>();
-        RB.linearVelocity = new Vector2(10,0);
-        
+
+       
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = Vector3.MoveTowards(transform.position, Target.transform.position, 0.1f);
-         RB.MovePosition(move);
+        HorizontalInput = Input.GetAxis("Horizontal");
+        VerticalInput = Input.GetAxis("Vertical");
+
+
     }
 }
