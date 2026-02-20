@@ -6,13 +6,17 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D RB;
   
     public float speed = 5;
-    public float HorizontalInput;
-    public float VerticalInput;
+    public GameObject projectilePrefab;
+    public Transform firePoint;
+    public float projectileSpeed = 10;
+    private Rigidbody2D rb;
+    private float HorizontalInput;
+    private Vector2 input;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
        
 
 
@@ -22,8 +26,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HorizontalInput = Input.GetAxis("Horizontal");
-        VerticalInput = Input.GetAxis("Vertical");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
 
 
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 movement = new Vector2(HorizontalInput, 0);
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+    }
+
+    void Shoot()
+    {
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.linearVelocity = Vector2.up * projectileSpeed;
     }
 }
