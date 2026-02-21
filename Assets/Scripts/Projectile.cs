@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public GameObject explosionPrefab;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +16,18 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Instantiate(explosionPrefab, other.transform.position, Quaternion.identity);
+            Object.FindFirstObjectByType<SpawnManager>().OnZombieKilled();
+
+            Destroy(other.gameObject); //Zombie
+            Destroy(gameObject); //Projectile
+            
+        }
     }
 }
