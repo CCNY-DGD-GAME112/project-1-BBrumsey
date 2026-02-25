@@ -25,8 +25,8 @@ public class Projectile : MonoBehaviour
             Instantiate(explosionPrefab, other.transform.position, Quaternion.identity);
             Object.FindFirstObjectByType<SpawnManager>().OnZombieKilled();
 
-            Destroy(other.gameObject); //Zombie
-            Destroy(gameObject); //Projectile
+            Destroy(other.gameObject); // Destroys the zombine on contact
+            Destroy(gameObject); // Destroys the projectile on contact
             
         }
     }

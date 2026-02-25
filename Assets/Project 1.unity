@@ -520,6 +520,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   RB: {fileID: 836132683}
+  firingCooldown: 0.5
+  nextFireTime: 0
   speed: 5
   projectilePrefab: {fileID: 5072040094298689498, guid: 3f16113176c00114f819c58cbe936419, type: 3}
   firePoint: {fileID: 102413217}
@@ -595,6 +597,7 @@ GameObject:
   - component: {fileID: 905109519}
   - component: {fileID: 905109518}
   - component: {fileID: 905109520}
+  - component: {fileID: 905109521}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -727,9 +730,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   timerText: {fileID: 1885253927}
-  timer: 5
+  timer: 10
   audioSource: {fileID: 905109518}
-  audioClip: {fileID: 8300000, guid: a6f017e886bb04a46b733d352bab7f2c, type: 3}
+  audioClip: {fileID: 0}
 --- !u!114 &905109520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +747,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Score
   score: 0
   scoreText: {fileID: 0}
+--- !u!114 &905109521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 905109516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4d80b7ba6cdca4d9731e546321aa08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  scoreText: {fileID: 1079925128}
+  timerText: {fileID: 1885253927}
+  gameOverText: {fileID: 0}
+  startTime: 20
 --- !u!1 &940274996
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +822,7 @@ GameObject:
   - component: {fileID: 1079925129}
   - component: {fileID: 1079925128}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,7 +1297,7 @@ GameObject:
   - component: {fileID: 1885253929}
   - component: {fileID: 1885253930}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

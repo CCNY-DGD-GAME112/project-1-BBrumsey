@@ -4,7 +4,8 @@ public class PlayerController : MonoBehaviour
 
 {
     public Rigidbody2D RB;
-  
+    public float firingCooldown = 0.5f; //This is optional but it prevents spamming the space bar for fast tapping)
+    public float nextFireTime = 0;
     public float speed = 5;
     public GameObject projectilePrefab;
     public Transform firePoint;
@@ -26,9 +27,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HorizontalInput = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time >= nextFireTime)
         {
+
+            nextFireTime = Time.time + firingCooldown;
             Shoot();
+
+
         }
 
 
