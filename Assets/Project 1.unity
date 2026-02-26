@@ -464,11 +464,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.0790329}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -478,7 +478,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.0000501}
   m_EdgeRadius: 0
 --- !u!50 &836132683
 Rigidbody2D:
@@ -594,9 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 905109517}
-  - component: {fileID: 905109519}
   - component: {fileID: 905109518}
-  - component: {fileID: 905109520}
   - component: {fileID: 905109521}
   m_Layer: 0
   m_Name: GameManager
@@ -717,36 +715,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &905109519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905109516}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 983d9d1ff83520949807f4027c62a0d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Timer
-  timerText: {fileID: 1885253927}
-  timer: 10
-  audioSource: {fileID: 905109518}
-  audioClip: {fileID: 0}
---- !u!114 &905109520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 905109516}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63a13f7c26268de46a5a1aa64a3501d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Score
-  score: 0
-  scoreText: {fileID: 0}
 --- !u!114 &905109521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,7 +730,7 @@ MonoBehaviour:
   scoreText: {fileID: 1079925128}
   timerText: {fileID: 1885253927}
   gameOverText: {fileID: 0}
-  startTime: 20
+  startTime: 200
 --- !u!1 &940274996
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +757,7 @@ Transform:
   m_GameObject: {fileID: 940274996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1006.75, y: 216.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1200,10 +1168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983d9d1ff83520949807f4027c62a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
-  timerText: {fileID: 0}
-  timer: 5
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 4e394d6770d5a504da1c4f75ebde5472, type: 3}
 --- !u!1 &1869598971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,10 +1398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983d9d1ff83520949807f4027c62a0d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
-  timerText: {fileID: 1885253927}
-  timer: 5
-  audioSource: {fileID: 1885253930}
-  audioClip: {fileID: 8300000, guid: 4e394d6770d5a504da1c4f75ebde5472, type: 3}
 --- !u!82 &1885253930
 AudioSource:
   m_ObjectHideFlags: 0

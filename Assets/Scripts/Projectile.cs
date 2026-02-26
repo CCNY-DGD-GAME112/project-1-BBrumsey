@@ -23,6 +23,8 @@ public class Projectile : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Instantiate(explosionPrefab, other.transform.position, Quaternion.identity);
+            if (GameManager.Instance != null)
+                GameManager.Instance.AddScore(1);
             Object.FindFirstObjectByType<SpawnManager>().OnZombieKilled();
 
             Destroy(other.gameObject); // Destroys the zombine on contact

@@ -20,6 +20,8 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance != null && GameManager.Instance.IsGameOver())
+            return;
 
         if (player != null)
         {
@@ -28,6 +30,15 @@ public class EnemyController : MonoBehaviour
 
             rb.MovePosition(newPosition);
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       if (collision.collider.CompareTag("Player"))
+        {
+            if (GameManager.Instance != null)
+                GameManager.Instance.GameOver();
         }
     }
 }
