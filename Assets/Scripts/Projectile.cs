@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public GameObject explosionPrefab;
 
 
 
@@ -22,12 +21,9 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            Instantiate(explosionPrefab, other.transform.position, Quaternion.identity);
-            if (GameManager.Instance != null)
-                GameManager.Instance.AddScore(1);
-            Object.FindFirstObjectByType<SpawnManager>().OnZombieKilled();
 
-            Destroy(other.gameObject); // Destroys the zombine on contact
+
+            other.GetComponent<EnemyController>()?.Die(); // Destroys the zombine on contact
             Destroy(gameObject); // Destroys the projectile on contact
             
         }

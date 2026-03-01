@@ -663,3 +663,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   speed: 2.5
+  blood: {fileID: 7947575573252477736, guid: 4b4073a97903b1c48823ebdf1071b584, type: 3}

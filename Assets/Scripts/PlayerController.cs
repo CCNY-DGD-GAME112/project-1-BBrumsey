@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float firingCooldown = 0.5f; //This is optional but it prevents spamming the space bar for fast tapping)
     public float nextFireTime = 0;
     public float speed = 5;
+    
     public GameObject projectilePrefab;
     public Transform firePoint;
     public float projectileSpeed = 10;
@@ -14,12 +15,12 @@ public class PlayerController : MonoBehaviour
     private float HorizontalInput;
     private Vector2 input;
 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-       
-
+      
 
     }
 
@@ -33,9 +34,7 @@ public class PlayerController : MonoBehaviour
             nextFireTime = Time.time + firingCooldown;
             Shoot();
 
-
         }
-
 
     }
 

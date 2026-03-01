@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -5,6 +6,25 @@ public class EnemyController : MonoBehaviour
     private Transform player;
     public float speed = 2;
     private Rigidbody2D rb;
+    public ParticleSystem blood;
+
+    public void Die()
+    {
+        if(blood != null)
+        {
+            ParticleSystem bloodEffect = Instantiate(blood, transform.position, Quaternion.identity);
+            bloodEffect.Play();
+        }
+        if (GameManager.Instance != null)
+            GameManager.Instance.AddScore(1);
+
+        FindFirstObjectByType<SpawnManager>()?.OnZombieKilled();
+
+        Destroy(gameObject);
+    }
+
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +51,7 @@ public class EnemyController : MonoBehaviour
             rb.MovePosition(newPosition);
 
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
