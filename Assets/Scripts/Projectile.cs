@@ -2,30 +2,17 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
+            EnemyController enemy = other.GetComponent<EnemyController>();
+            if (enemy != null)
+                enemy.Die(); // This handles score + OnZombieKilled
+            else
+                Destroy(other.gameObject); // Fallback
 
-
-            other.GetComponent<EnemyController>()?.Die(); // Destroys the zombine on contact
-            Destroy(gameObject); // Destroys the projectile on contact
-            
+            Destroy(gameObject);
         }
     }
 }

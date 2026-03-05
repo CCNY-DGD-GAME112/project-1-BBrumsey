@@ -8,26 +8,27 @@ public class SpawnManager : MonoBehaviour
     private int aliveCount = 0;
     private float nextSpawnTime = 0f;
 
-   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
-    
-  
+
+
     // Update is called once per frame
     void Update()
     {
-      if(aliveCount < targetAlive && Time.time >= nextSpawnTime) {
-        
+        if (aliveCount < targetAlive && Time.time >= nextSpawnTime)
+        {
+
             SpawnOneZombie();
             aliveCount++;
             nextSpawnTime = Time.time + spawnCooldown;
 
 
         }
-     
+
     }
 
     public void OnZombieKilled()
@@ -35,15 +36,16 @@ public class SpawnManager : MonoBehaviour
         aliveCount = Mathf.Max(0, aliveCount - 1);
         targetAlive++;
     }
-    
-    
+
+
 
     void SpawnOneZombie()
     {
-        float spawnX = Random.Range(-8, 8);
-        float spawnY = 6;
+        float spawnX = Random.Range(-8f, 8f);
+        float spawnY = 5f; // adjust to just above your camera top
 
-        Vector2 spawnPos = new Vector2(spawnX, spawnY);
+        // Add slight random offset so zombies don't stack exactly
+        Vector2 spawnPos = new Vector2(spawnX + Random.Range(-0.5f, 0.5f), spawnY);
 
         Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
     }

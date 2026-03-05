@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     // Update is called once per frame
@@ -38,15 +39,16 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (GameManager.Instance != null && GameManager.Instance.IsGameOver())
-            return;
+        //if (GameManager.Instance != null && GameManager.Instance.IsGameOver())
+        {
+            //return;
 
+        }
         if (player != null)
         {
-            Vector2 newPosition = Vector2.MoveTowards(
-            rb.position, (Vector2)player.position, speed * Time.fixedDeltaTime);
+            Vector2 newPosition = Vector2.MoveTowards(rb.position, (Vector2)player.position, speed * Time.fixedDeltaTime);
 
             rb.MovePosition(newPosition);
 
@@ -54,9 +56,9 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-       if (collision.collider.CompareTag("Player"))
+        if (collision.collider.GetComponentInParent<PlayerController>() != null)
         {
             if (GameManager.Instance != null)
                 GameManager.Instance.GameOver();

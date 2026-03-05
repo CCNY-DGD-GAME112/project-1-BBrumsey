@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
     private bool gameOver = false;
 
 
-void Awake()
+    void Awake()
     {
-        if(Instance != null && Instance != this)
+
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
@@ -28,8 +29,9 @@ void Awake()
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-void Start()
+    void Start()
     {
+        gameOver = false;
         timeLeft = startTime;
         score = 0;
 
@@ -45,7 +47,6 @@ void Start()
     void Update()
     {
 
-        if (gameOver) return;
 
         timeLeft -= Time.deltaTime;
         if (timeLeft <= 0)
@@ -60,7 +61,7 @@ void Start()
 
     public void AddScore(int amount)
     {
-        if (gameOver) return;
+        
         score += amount;
         UpdateScoreUI();
     }
@@ -70,9 +71,9 @@ void Start()
     }
     private void UpdateScoreUI()
     {
-    
-            if (scoreText != null)
-                scoreText.text = $"Score: {score}";
+
+        if (scoreText != null)
+            scoreText.text = $"Score: {score}";
     }
 
     private void UpdateTimerUI()
