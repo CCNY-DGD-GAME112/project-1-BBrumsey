@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public TextMeshProUGUI highScoreText;
 
-    public float startTime;
     private int score = 0;
     private float timeLeft;
     private bool gameOver = false;
@@ -34,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOver = false;
-        timeLeft = startTime;
+        timeLeft = 0;
         score = 0;
 
      
@@ -101,10 +100,11 @@ public class GameManager : MonoBehaviour
 
         if (highScoreText != null)
             highScoreText.text = $"High Score: {highScore}";
-    }
+    } 
 
     public void PlayAgain()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

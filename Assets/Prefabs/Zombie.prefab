@@ -669,7 +669,6 @@ MonoBehaviour:
   playerBlood: {fileID: 5199016080575523002, guid: cdadea1f04f691949be0093ad69e5c36, type: 3}
   deathSound: {fileID: 8300000, guid: c824f585b4a33874e877436ef6c654c9, type: 3}
   zombieAudio: {fileID: 1898005350795316320}
-  walkSound: {fileID: 8300000, guid: 2f83ba79b6af96e46aace613c560d6c8, type: 3}
 --- !u!95 &7431831988357843796
 Animator:
   serializedVersion: 7

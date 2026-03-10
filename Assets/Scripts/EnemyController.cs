@@ -12,8 +12,7 @@ public class EnemyController : MonoBehaviour
     private AudioSource audioSource;
     private AudioClip zombieGroan;
     public AudioSource zombieAudio;
-    public AudioClip walkSound;
-
+  
     public void Die()
     {
         if(blood != null)
@@ -44,9 +43,8 @@ public class EnemyController : MonoBehaviour
         }
         
 
-        if (zombieAudio != null && walkSound != null)
+        if (zombieAudio != null )
         {
-            zombieAudio.clip = walkSound;
             zombieAudio.loop = true;
             zombieAudio.Play();
         }
