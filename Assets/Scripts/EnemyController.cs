@@ -8,6 +8,9 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D rb;
     public ParticleSystem blood;
     public ParticleSystem playerBlood;
+    public AudioClip deathSound;
+    private AudioSource audioSource;
+    private AudioClip zombieGroan;
 
     public void Die()
     {
@@ -16,6 +19,8 @@ public class EnemyController : MonoBehaviour
             ParticleSystem bloodEffect = Instantiate(blood, transform.position, Quaternion.identity);
             bloodEffect.Play();
         }
+
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
         if (GameManager.Instance != null)
             GameManager.Instance.AddScore(1);
 
@@ -35,6 +40,10 @@ public class EnemyController : MonoBehaviour
         {
             player = foundPlayer.transform;
         }
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = zombieGroan;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     // Update is called once per frame

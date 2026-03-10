@@ -50,14 +50,8 @@ public class GameManager : MonoBehaviour
         if (gameOver)
             return;
 
-        timeLeft -= Time.deltaTime;
-        if (timeLeft <= 0)
-        {
-            timeLeft = 0;
-         
-            GameOver();
-            return;
-        }
+        timeLeft += Time.deltaTime;
+        
         UpdateTimerUI();
     }
 
@@ -67,6 +61,12 @@ public class GameManager : MonoBehaviour
         score += amount;
         UpdateScoreUI();
     }
+
+    public int GetScore() {
+        return score; 
+    }
+
+
     public bool IsGameOver()
     {
         return gameOver;
