@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,7 +8,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
-    public TextMeshProUGUI gameOverText;
+    public GameObject gameOverPanel;
+    public TextMeshProUGUI highScoreText;
 
     public float startTime = 20;
     private int score = 0;
@@ -35,8 +37,7 @@ public class GameManager : MonoBehaviour
         timeLeft = startTime;
         score = 0;
 
-        if (gameOverText != null)
-            gameOverText.gameObject.SetActive(false);
+     
 
         UpdateScoreUI();
         UpdateTimerUI();
@@ -86,7 +87,24 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-        if (gameOverText != null)
-            gameOverText.gameObject.SetActive(true);
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);
+
+        int highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        if(score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
+        }
+
+        if (highScoreText != null)
+            highScoreText.text = $"High Score: {highScore}";
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
