@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public TextMeshProUGUI highScoreText;
 
-    public float startTime = 20;
+    public float startTime;
     private int score = 0;
     private float timeLeft;
     private bool gameOver = false;

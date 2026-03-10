@@ -11,6 +11,8 @@ public class EnemyController : MonoBehaviour
     public AudioClip deathSound;
     private AudioSource audioSource;
     private AudioClip zombieGroan;
+    public AudioSource zombieAudio;
+    public AudioClip walkSound;
 
     public void Die()
     {
@@ -40,10 +42,14 @@ public class EnemyController : MonoBehaviour
         {
             player = foundPlayer.transform;
         }
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = zombieGroan;
-        audioSource.loop = true;
-        audioSource.Play();
+        
+
+        if (zombieAudio != null && walkSound != null)
+        {
+            zombieAudio.clip = walkSound;
+            zombieAudio.loop = true;
+            zombieAudio.Play();
+        }
     }
 
     // Update is called once per frame
@@ -79,6 +85,10 @@ public class EnemyController : MonoBehaviour
 
             if (GameManager.Instance != null)
                 GameManager.Instance.GameOver();
+
+            if (zombieAudio != null)
+                zombieAudio.Stop();
+        
         }
     }
 }
