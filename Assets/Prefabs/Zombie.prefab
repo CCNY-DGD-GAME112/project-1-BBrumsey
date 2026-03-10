@@ -665,6 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   speed: 2.5
   blood: {fileID: 7947575573252477736, guid: 0383ac5c5ec8c0840a4fd90eb28993c8, type: 3}
+  playerBlood: {fileID: 5199016080575523002, guid: cdadea1f04f691949be0093ad69e5c36, type: 3}
 --- !u!95 &7431831988357843796
 Animator:
   serializedVersion: 7

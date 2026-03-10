@@ -46,13 +46,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (gameOver)
+            return;
 
         timeLeft -= Time.deltaTime;
         if (timeLeft <= 0)
         {
             timeLeft = 0;
-            UpdateTimerUI();
+         
             GameOver();
             return;
         }

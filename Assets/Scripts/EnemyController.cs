@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 2;
     private Rigidbody2D rb;
     public ParticleSystem blood;
+    public ParticleSystem playerBlood;
 
     public void Die()
     {
@@ -23,14 +24,17 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        
+        GameObject foundPlayer = GameObject.FindGameObjectWithTag("Player");
+        if (foundPlayer != null)
+        {
+            player = foundPlayer.transform;
+        }
     }
 
     // Update is called once per frame
@@ -41,11 +45,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //if (GameManager.Instance != null && GameManager.Instance.IsGameOver())
-        {
-            //return;
-
-        }
+       
         if (player != null)
         {
             Vector2 newPosition = Vector2.MoveTowards(rb.position, (Vector2)player.position, speed * Time.fixedDeltaTime);
@@ -60,6 +60,14 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.collider.GetComponentInParent<PlayerController>() != null)
         {
+            if (playerBlood != null)
+            {
+                ParticleSystem playerEffect = Instantiate(playerBlood, collision.transform.position, Quaternion.identity);
+                playerEffect.Play();
+            }
+
+            Destroy(collision.gameObject);
+
             if (GameManager.Instance != null)
                 GameManager.Instance.GameOver();
         }
