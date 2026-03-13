@@ -100,11 +100,18 @@ public class GameManager : MonoBehaviour
 
         if (highScoreText != null)
             highScoreText.text = $"High Score: {highScore}";
+
+        if (MusicManager.Instance != null)
+            MusicManager.Instance.StopMusic();
     } 
 
     public void PlayAgain()
     {
         Time.timeScale = 1;
+
+        if(MusicManager.Instance != null)
+            MusicManager.Instance.PlayMusic();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
