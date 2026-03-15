@@ -1,6 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+/*
+Enemy Controller:
+This script controls the zombie. It moves toward the player, plays zombie sounds, and handles what happenswhen the zombie dies or collides with the player.
+*/
+
 public class EnemyController : MonoBehaviour
 {
     private Transform player;

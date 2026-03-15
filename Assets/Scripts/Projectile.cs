@@ -1,5 +1,9 @@
 using UnityEngine;
-
+/*
+Projectile:
+This script controls what happens when a projectile hits an enenmy.
+*/ 
+ 
 public class Projectile : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)

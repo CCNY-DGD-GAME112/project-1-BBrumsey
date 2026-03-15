@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/*
+Spawn Manager:
+This script controls zombie spawning. It keeps track of how many zombies are alive and increases the difficulty by speeding them up as the player gets more kills.
+*/
+
 public class SpawnManager : MonoBehaviour
 {
     public float spawnCooldown = 1.7f;

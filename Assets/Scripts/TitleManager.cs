@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/*
+Title Manager:
+This script controls the title screen menu. It lets the player start the game.
+*/
 public class TitleManager : MonoBehaviour
 {
     public void StartGame()
@@ -7,19 +11,5 @@ public class TitleManager : MonoBehaviour
         SceneManager.LoadScene("Project 1");
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
 }

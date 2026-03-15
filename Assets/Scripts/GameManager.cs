@@ -2,6 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+GameManager:
+This script controls the main game systems like score, timer, game over, high score, and restarting the game.
+*/
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }

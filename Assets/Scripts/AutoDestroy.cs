@@ -1,5 +1,8 @@
 using UnityEngine;
-
+/*
+AutoDestroy:
+ This script destroys temporary objects like particle effects after a short amount of time.
+*/
 public class AutoDestroy : MonoBehaviour
 {
     public float lifetime = 0.5f;

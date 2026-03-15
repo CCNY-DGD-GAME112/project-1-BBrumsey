@@ -1,5 +1,8 @@
 using UnityEngine;
-
+/*
+Music Manager:
+This script controls the background music for the game. It uses a singleton so only one music manager exists and the music continues between scnes
+*/
 public class MusicManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

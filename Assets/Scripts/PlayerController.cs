@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/*
+Player Controller:
+This script handles player movement and shooting.
+The player can move left and right and shoot projectiles.
+*/
 public class PlayerController : MonoBehaviour
 
 {
