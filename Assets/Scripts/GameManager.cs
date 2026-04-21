@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     private void UpdateTimerUI()
     {
         if (timerText != null)
-            timerText.text = $"Time: {timeLeft:0.0}";
+            timerText.text = $"Time: {timeLeft:0:0}";
     }
 
     public void GameOver()
